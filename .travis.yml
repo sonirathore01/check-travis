@@ -10,7 +10,8 @@ script:
   - npm test
   - npm run build
   - sh build.sh
-  - ls -R build/static
+  - ls -R build/static/assets
+  - cat build/static/assets/Last_build
 deploy:
   provider: pages
   skip_cleanup: true
