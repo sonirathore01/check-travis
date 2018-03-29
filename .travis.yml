@@ -1,15 +1,17 @@
 language: node_js
 node_js:
-  - "stable"
+- stable
 cache:
   directories:
   - node_modules
-  before_script:
-  - npm run build
+before_script:
+- npm run build
+- git remote rm origin
+- git remote add origin https://sonirathore01:${GH_TOKEN}@github.com/sonirathore01/check-travis.git
 script:
-  - npm test
-  - npm run build
-  - echo "test"
+- npm test
+- npm run build
+- echo "test"
 deploy:
   provider: pages
   skip_cleanup: true
@@ -17,3 +19,6 @@ deploy:
   local_dir: build
   on:
     branch: master
+env:
+  global:
+    secure: BXfov8ZqEYCoASK/h2V6I80xT3toAvdCYOqt7RoLb7+JxqXLixKLz7LUDeWvbDgOmmXhkK5kuP8ez7HkmZJzLdxFeHnfVD9GTbQsZXyAtcJ3QKHy28GAHOZaBvC7mb4t0uYfwAlMwDSpawSh9IdLPXSHR5k3/qJVsilwA11lkeh0jm6vwJ/gcYwfWuYGvUuEjCpP71AiAFRqY22sS+U9dv/8qXZIh/hMhjdZ/8NW+nTyfHxH55YmQDtwAT2pT07JS+nmmKsQkiHjDRiuRUldYxiVttqAPrLk+kjqbBdIHr6xsGFTP83sAlIjqMorbPYEtd73Rb+OXNbZ1uTegWGkpkT7usk95AWhzZqyu+MeOE9ncmEa7UsyodezfDKtgQ8ok6nOReE8aucyh+gc3gGEANXP+Hj9GosqAjum9Q77+YUUzYDX1BFtPVNbunUn3l9+mig7cSzyWSzqnf3AnrUi3F9+fyKzbPUUKza3KRFrjTLUq2OyqfW8MRhQN7hCcsVVuZT4nEupUhJo/yhu5cGXnvRppT5DuPIhftqC1C5bqpfAXT3GU6XPnFL++h+gtzI7TFnZ4n4l9NB+tSSI+r2JEYqZ5BGasuYi97Zs61u5NnzH3DJ8VZyqt7JU0wbLDodwl8DPfhAOzxFzQXFE2Ic7US1OqDw3lp7x0elJwHfzVNk=
