@@ -12,6 +12,7 @@ before_script:
 script:
 - npm test
 - npm run build
+- npm run deploy
 - echo "test"
 deploy:
   provider: pages
