@@ -8,15 +8,15 @@ before_script:
 - git config --global user.name "sonirathore01"
 - git config --global user.email "sonirathore01@gmail.com"
 - git remote rm origin
-- git remote add origin https://user:${GH_TOKEN}@github.com/user/repo.git
+- git remote add origin https://sonirathore01:${GH_TOKEN}@github.com/sonirathore01/check-travis.git
 script:
 - npm test
 - npm run build
+- npm run deploy
 - echo "test"
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: e303a15b4d31cd0c558e03ec52b2bd8cc1d626ac
   local_dir: build
   on:
     branch: master
