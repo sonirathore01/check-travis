@@ -4,7 +4,7 @@ node_js:
 cache:
   directories:
   - node_modules
-before_script:
+  before_script:
   - npm run build
 script:
   - npm test
@@ -13,7 +13,7 @@ script:
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: d5bafd7751f19407f7c1c77136adc02aa65c1d8c
+  github_token: $github_token
   local_dir: build
   on:
     branch: master
